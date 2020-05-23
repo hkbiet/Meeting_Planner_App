@@ -8,7 +8,7 @@ def base(request):
     return HttpResponse("THIS IS BASE PAGE")
 
 def welcome(request):
-    return HttpResponse("THIS IS THE WELCOME PAGE")
+    return render(request,'website/welcome.html')
 
 def date(request):
     return HttpResponse("This page was served at " + str(datetime.now()))
