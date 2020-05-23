@@ -18,10 +18,11 @@ from django.urls import path
 from django.urls import include
 from website.views import welcome
 
-from meetings.views import detail
+from meetings.views import detail, new_form
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('welcome', welcome),
-    path('meeting/<int:id>',detail),
+    path('welcome', welcome, name='welcome'),
+    path('meeting/<int:id>',detail, name = 'detail'),
+    path('new', new_form,name = 'new'),
 ]

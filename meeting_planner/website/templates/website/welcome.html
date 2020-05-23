@@ -1,8 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-<title>
-Meeting Planner
-</title>
+
+<head>
+    <title>
+    Meeting Planner
+    </title>
+    <link rel="stylesheet" href="{% static 'website/style.css' %}">
+    
+</head>
+
 
 <body>
 
@@ -12,9 +19,28 @@ Meeting Planner
 
 <p>
 
-    Total number of meetings scheduled and as present in the database : {{num_meetings}}
+    Meetings : 
+    
+    <ul>
+        {% for meeting in meetings %}
+            <li>
+                <a href="{% url 'detail' meeting.id %}">
+                {{meeting.title}}</a>
+            </li>
+        {% endfor %}
+    
+    
+    
+    </ul>
 
 </p>
+
+<p>Create a new meeting: </br>
+
+<a href="{% url 'new' %}">New Meeting</a>
+
+</p>
+
 
 </body>
 </html>

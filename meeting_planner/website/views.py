@@ -9,7 +9,7 @@ def base(request):
     return HttpResponse("THIS IS BASE PAGE")
 
 def welcome(request):
-    return render(request,'website/welcome.html', {'num_meetings':Meeting.objects.count()})
+    return render(request,'website/welcome.html', {'meetings':Meeting.objects.all()})
 
 def date(request):
     return HttpResponse("This page was served at " + str(datetime.now()))
